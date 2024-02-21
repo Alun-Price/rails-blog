@@ -1,0 +1,29 @@
+<%= form_with model: article do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+    <% if article.errors[:title].any? %>
+      <div>
+        <% article.errors[:title].each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+    <% if article.errors[:body].any? %>
+      <div>
+        <% article.errors[:body].each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
